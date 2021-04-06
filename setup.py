@@ -1,6 +1,9 @@
 import os
 from setuptools import setup, find_packages
 
+def read(file):
+    return open(os.path.join(os.path.dirname(__file__), file)).read()
+
 setup(
     name='pytorch-forecasting',
     version='0.0',
