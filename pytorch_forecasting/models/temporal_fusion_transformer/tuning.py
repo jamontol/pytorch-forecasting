@@ -131,7 +131,7 @@ def optimize_hyperparameters(
         gradient_clip_val = trial.suggest_loguniform("gradient_clip_val", *gradient_clip_val_range)
         default_trainer_kwargs = dict(
             gpus=[0] if torch.cuda.is_available() else None,
-            max_epochs=max_epochs,
+            max_epochs=trial.suggest_int('max_epochs', *max_epochs_range),
             gradient_clip_val=gradient_clip_val,
             callbacks=[
                 metrics_callback,
