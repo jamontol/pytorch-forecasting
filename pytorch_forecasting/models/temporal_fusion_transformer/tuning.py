@@ -40,7 +40,7 @@ def optimize_hyperparameters(
     train_dataloader: DataLoader,
     val_dataloader: DataLoader,
     model_path: str,
-    max_epochs: int = 20,
+    max_epochs_range: Tuple[int, int] = (5, 20),
     n_trials: int = 100,
     timeout: float = 3600 * 8.0,  # 8 hours
     gradient_clip_val_range: Tuple[float, float] = (0.01, 100.0),
