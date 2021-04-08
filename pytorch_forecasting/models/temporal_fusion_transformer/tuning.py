@@ -20,7 +20,7 @@ from torch.utils.data import DataLoader
 
 from pytorch_forecasting import TemporalFusionTransformer
 from pytorch_forecasting.data import TimeSeriesDataSet
-from pytorch_forecasting.metrics import QuantileLoss
+from pytorch_forecasting.metrics import QuantileLoss, MAPE
 
 optuna_logger = logging.getLogger("optuna")
 
