@@ -60,7 +60,7 @@ def make_dataloaders(data_with_covariates, **kwargs):
         time_idx="time_idx",
         max_encoder_length=max_encoder_length,
         max_prediction_length=max_prediction_length,
-        **kwargs  # fixture parametrization
+        **kwargs,  # fixture parametrization
     )
 
     validation = TimeSeriesDataSet.from_dataset(
@@ -130,7 +130,7 @@ def dataloaders_with_covariates(data_with_covariates):
         time_varying_unknown_reals=["target"],
         static_categoricals=["agency"],
         add_relative_time_idx=True,
-        target_normalizer=GroupNormalizer(groups=["agency", "sku"]),
+        target_normalizer=GroupNormalizer(groups=["agency", "sku"], center=False),
     )
 
 
