@@ -56,7 +56,7 @@ def optimize_hyperparameters(
     verbose: Union[int, bool] = None,
     **kwargs,
 ) -> optuna.Study:
-    pl.seed_everything(42)
+    #pl.seed_everything(42)
     """
     Optimize Temporal Fusion Transformer hyperparameters.
 
