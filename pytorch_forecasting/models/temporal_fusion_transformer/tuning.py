@@ -41,7 +41,7 @@ def optimize_hyperparameters(
     val_dataloader: DataLoader,
     model_path: str,
     max_epochs_range: Tuple[int, int] = (5, 20),
-    n_trials: int = 100,
+    n_trials: int = 2,
     timeout: float = 3600 * 8.0,  # 8 hours
     gradient_clip_val_range: Tuple[float, float] = (0.01, 100.0),
     hidden_size_range: Tuple[int, int] = (16, 265),
@@ -133,6 +133,7 @@ def optimize_hyperparameters(
         default_trainer_kwargs = dict(
             gpus=[0] if torch.cuda.is_available() else None,
             max_epochs=trial.suggest_int('max_epochs', *max_epochs_range),
+            min_epochs=5,
             gradient_clip_val=gradient_clip_val,
             callbacks=[
                 metrics_callback,
